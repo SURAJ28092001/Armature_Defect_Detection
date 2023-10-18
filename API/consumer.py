@@ -5,7 +5,7 @@ consumer = Consumer({
     'group.id': 'image-consumer-group',
     'auto.offset.reset': 'earliest'
 })
-consumer.subscribe(['Jaa_na_lavdee'])
+consumer.subscribe(['imagedata'])
 
 while True:
     msg = consumer.poll(1.0)

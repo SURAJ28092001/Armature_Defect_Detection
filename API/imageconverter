@@ -1,0 +1,24 @@
+import json
+from PIL import Image
+
+# Load the JSON data from the file
+with open('output.json', 'r') as json_file:
+    json_data = json.load(json_file)
+
+# Loop through each image in the JSON data
+for image_data in json_data['images']:
+    filename = image_data['filename']
+    width = image_data['width']
+    height = image_data['height']
+    pixel_data = image_data['pixels']
+
+    # Create a new image with the specified dimensions
+    image = Image.new('RGB', (width, height))
+
+    # Put the pixel data into the image
+    image.putdata(pixel_data)
+
+    # Save the image as a new JPG file
+    image.save(filename)
+
+print("JPG files have been recreated from JSON data.")

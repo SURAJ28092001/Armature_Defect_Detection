@@ -1,0 +1,37 @@
+# import all functions from the tkinter 
+from tkinter import *
+import tkinter as tk
+# import the random library 
+import random
+from PIL import ImageTk, Image
+
+# Driver code 
+if __name__ == "__main__" : 
+
+	# Create a GUI window 
+	root = Tk()
+
+	# Set the background colour of GUI window 
+	root.configure(background = 'light green') 
+	
+	# Set the configuration of GUI window (WidthxHeight) 
+	root.geometry("600x600") 
+
+	# set the name of tkinter GUI window 
+	root.title("adm")
+	
+	# Create Welcome to SpongeBob Mocking Text Generator label 
+	frame1 = Label(text='jai maata di',master=root, height=10, bg="red")
+	frame1.pack(fill=root.tk.x)
+	label1 = Label(root, text= " Red / Green ", fg = 'black', bg = 'sky blue') 
+	label2 = Label(root, text = "Type of defect", fg = 'black', bg = 'sky blue') 
+	label1.grid(row = 2, column = 5, padx = 10) 
+	label2.grid(row = 3, column = 5, padx = 10) 
+	text2_field = Text(root, height = 5, width = 25, font = "lucida 13")
+	image = Image.open("API\input.png")
+	image=image.resize((600,600))
+	photo = ImageTk.PhotoImage(image)
+	img_label = Label(image=photo)
+	img_label.image = photo
+	img_label.grid(row=0, column=3, padx =10 , pady= 10)
+	root.mainloop() 

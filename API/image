@@ -1,0 +1,24 @@
+from PIL import Image
+import json
+
+# Open the JPG image
+image = Image.open('input.jpg')
+
+# Convert the image to RGB mode (if it's not already)
+if image.mode != 'RGB':
+    image = image.convert('RGB')
+
+# Get the dimensions of the image
+width, height = image.size
+# Get the pixel data as a list of RGB tuples
+pixel_data = list(image.getdata())
+
+# Create a dictionary to store the pixel data and image dimensions
+data = {
+    "width": width,
+    "height": height,
+    "pixels": pixel_data
+}
+
+# Convert the dictionary to a JSON string
+json_data = json.dumps(data)
